@@ -20,7 +20,7 @@ MonoBehaviour:
     assembler in the form of its patented assembly system, The Module Assembly Station
     INC Automatic Module Assembler\u2122.\r\n\r\nThis room will assemble modules on
     the current bomb, ignoring modules hidden by mystery module. The room is currently
-    in Beta so please report any found bugs.\r\n\r\nGithub: https://github.com/marksam32/ktaneModuleAssemblyStationV2"
+    in a Beta phase so please report any found bugs.\r\n\r\nGithub: https://github.com/marksam32/ktaneModuleAssemblyStationV2"
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 66cc2b09c2ac70e4c97d4022aae6eca7, type: 3}

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: WorkshopItem
   m_EditorClassIdentifier: 
   WorkshopPublishedFileID: 0
-  Title: Module Assembly Station
-  Tags: []
+  Title: Module Assembly Station V2
+  Tags:
+  - Gameplay Room
