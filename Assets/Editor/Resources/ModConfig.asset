@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
+  m_Name: ModConfig
+  m_EditorClassIdentifier: 
+  id: moduleAssemblyStationV2
+  title: Module Assembly Station V2
+  author: Marksam
+  description: "After the old Module Assembly Station broke, the brilliant minds over
+    at Module Assembly Station INC decided to build an entirely new and improved Module
+    Assembly Station.\r\n\r\nThe new version features an entirely automatic module
+    assembler in the form of its patented assembly system, The Module Assembly Station
+    INC Automatic Module Assembler\u2122.\r\n\r\nThis room will assemble modules on
+    the current bomb, ignoring modules hidden by mystery module. The room is currently
+    in Beta so please report any found bugs.\r\n\r\nGithub: https://github.com/marksam32/ktaneModuleAssemblyStationV2"
+  version: 1.0
+  outputFolder: build
+  previewImage: {fileID: 2800000, guid: 66cc2b09c2ac70e4c97d4022aae6eca7, type: 3}
