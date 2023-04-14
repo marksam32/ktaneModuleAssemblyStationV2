@@ -29,6 +29,8 @@ namespace MASLib
         private List<KtaneModule> _moduleGameobjects;
         private Coroutine _currentTextCoroutine;
 
+        private const string _version = "1.1";
+
         private void Awake()
         {
             GameplayRoom.OnLightChange = OnLightChange;
@@ -36,6 +38,7 @@ namespace MASLib
 
         private void Start()
         {
+            DebugLog("Running version {0}", _version);
             StartCoroutine(ActivateEmergencyLight());
             //The OnLightChange event isn't triggered in the editor so I just trigger it manually
             if (Application.isEditor)
@@ -52,6 +55,7 @@ namespace MASLib
         private IEnumerator Setup()
         {
             yield return new WaitForSeconds(1f);
+            DebugLog("Setting up");
             var modules = new List<KtaneModule>();
 
             var moddedModules = FindObjectsOfType<KMBombModule>();
@@ -59,6 +63,7 @@ namespace MASLib
             //Check if there is a Mystery Module on the bomb, since we don't want to reveal the hidden module
             if (moddedModules.Any(x => x.ModuleType == "mysterymodule"))
             {
+                DebugLog("Mystery module found");
                 const string componentName = "MysteryModuleScript";
                 //There might be multiple, so we get all of them.
                 var mysteryModules = moddedModules.Where(x => x.ModuleType == "mysterymodule").ToList();
@@ -92,7 +97,8 @@ namespace MASLib
                         continue;
                     }
                     
-                    hiddenModules.Add(new MysteryModuleInfo(i, mystifiedModule.gameObject, fldIsSolved, comp));
+                    hiddenModules.Add(new MysteryModuleInfo(i, mystifiedModule.gameObject, fldIsSolved, comp, mystifiedModule.ModuleType));
+                    DebugLog("Added a mystified module {0}", mystifiedModule.ModuleType);
                 }
             }
             
@@ -184,6 +190,7 @@ namespace MASLib
                     {
                         _moduleGameobjects.Single(x => x.MysModIndex == moduleInfo.Index).MysModHidden = false;
                         remove.Add(moduleInfo);
+                        DebugLog("Module {0} with index {1} was solved, removing it from the mystified pool.", moduleInfo.ModuleType, moduleInfo.Index);
                     }
                 }
 
@@ -213,6 +220,7 @@ namespace MASLib
 
         private IEnumerator HandleConveyor()
         {
+            DebugLog("Starting conveyor handler.");
             //Holds all of the conveyor code
             while (true)
             {
@@ -383,6 +391,11 @@ namespace MASLib
             }
 
             roomLight.enabled = lightState;
+        }
+
+        private void DebugLog(string s, params object[] p)
+        {
+            Debug.LogFormat($"[Module Assembly Station V2] {string.Format(s, p)}");
         }
     }
 }
